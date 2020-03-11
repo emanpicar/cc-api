@@ -5,22 +5,22 @@ import (
 )
 
 type (
-	LuhnAlgorithm struct{}
+	luhnAlgorithm struct{}
 
-	LuhnManager interface {
+	Manager interface {
 		Validate(data string) bool
 	}
 )
 
-func New() LuhnManager {
-	return &LuhnAlgorithm{}
+func New() Manager {
+	return &luhnAlgorithm{}
 }
 
-func (la *LuhnAlgorithm) Validate(data string) bool {
+func (la *luhnAlgorithm) Validate(data string) bool {
 	return la.isValid(data)
 }
 
-func (la *LuhnAlgorithm) isValid(data string) bool {
+func (la *luhnAlgorithm) isValid(data string) bool {
 	source := []rune(data)
 	total := 0
 	double := false

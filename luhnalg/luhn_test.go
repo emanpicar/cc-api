@@ -8,31 +8,31 @@ func TestLuhnAlgorithm_Validate(t *testing.T) {
 	}
 	tests := []struct {
 		name string
-		la   *LuhnAlgorithm
+		la   *luhnAlgorithm
 		args args
 		want bool
 	}{
 		{
 			name: "Comply to Luhn Algorithm checksum: True",
-			la:   &LuhnAlgorithm{},
+			la:   &luhnAlgorithm{},
 			args: args{"4111111111111111"},
 			want: true,
 		},
 		{
 			name: "Comply to Luhn Algorithm checksum: False",
-			la:   &LuhnAlgorithm{},
+			la:   &luhnAlgorithm{},
 			args: args{"4111111111111"},
 			want: false,
 		},
 		{
 			name: "Comply to Luhn Algorithm checksum (with spaces): True",
-			la:   &LuhnAlgorithm{},
+			la:   &luhnAlgorithm{},
 			args: args{"5105 1051 0510 5100"},
 			want: true,
 		},
 		{
 			name: "Comply to Luhn Algorithm checksum (with spaces): False",
-			la:   &LuhnAlgorithm{},
+			la:   &luhnAlgorithm{},
 			args: args{"5105 1051 0510 5106"},
 			want: false,
 		},
@@ -40,7 +40,7 @@ func TestLuhnAlgorithm_Validate(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.la.Validate(tt.args.data); got != tt.want {
-				t.Errorf("LuhnAlgorithm.Validate() = %v, want %v", got, tt.want)
+				t.Errorf("luhnAlgorithm.Validate() = %v, want %v", got, tt.want)
 			}
 		})
 	}
